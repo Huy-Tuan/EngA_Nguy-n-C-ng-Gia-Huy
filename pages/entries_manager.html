@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Entries</title>
+    <link rel="stylesheet" href="../CSS/entries_manager.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img style="width: 23.516040802001953px; height: 26.351112365722656px;" src="../assets/icons/Mail.png" alt="">
+            <img style="width: 30px; height: 23.527742385864258px;" src="../assets/icons/bell/Icon/Outline/bell.png" alt="">
+            <img style="width: 43.20000076293945px; height: 33.87995147705078px;" src="../assets/images/avatar.png" alt="">
+        </header> 
+
+        <main>
+            <div class="nav-search">
+                <img style="
+                position: absolute;
+                margin-left: 10px;
+                width: 23.516040802001953px;
+                height: 23.516040802001953px;
+                " src="../assets/icons/search.png" alt="">
+                <input class="search-article" type="search" placeholder="Search Article Categories">
+            </div>
+
+            <div class="content">
+                <div class="manage">
+                    <img class="manage-icon" src="../assets/icons/manage_user.png" alt="">
+                    <img class="manage-icon" src="../assets/icons/manage_entries.png" alt="">
+                    <img class="manage-icon" src="../assets/icons/manage_article.png" alt="">
+                    <img class="manage-icon" src="../assets/icons/Log out.png" alt="">
+                </div>
+
+                <div class="newCategory">
+                    <h1 style="margin-left: 320px;">📂 Manage Categories</h1>
+                    <label for="">Category Name: </label>
+                    <br>
+                    <input id="new-name-category" type="text" placeholder="Enter category name">
+                    <br>
+                    <button id="btnAdd">Add category</button>
+                    <h3>📋 Category List</h3>
+                    <table>
+                        <thead>
+                            <th>#</th>
+                            <th>Category Name</th>
+                            <th>Actions</th>
+                        </thead>
+                    </table>
+                </div>
+        </main>
+
+        <footer>
+            <div>
+                <button>
+                  <img style="width: 11.431407928466797px;
+                    height: 11.431407928466797px;
+                    border-width: 1.64px;
+                    " src="../assets/icons/arrow-left.png" alt="">
+                    Previous  
+                </button>
+                
+            </div>
+
+            <div>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>...</button>
+                <button>4</button>
+                <button>5</button>
+            </div>
+
+            <div>
+                <button>
+                Next
+                <img style="
+                    width: 11.431407928466797px;
+                    height: 11.431407928466797px;
+                    border-width: 1.64px;
+                    " src="../assets/icons/arrow-right.png" alt=""> 
+                </button>
+                
+            </div>
+        </footer>
+    </div>
+        
+</body>
+</html>

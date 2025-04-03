@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Welcome to the website</h1>
+            <p class="logo">RIKKEI EDUCATION</p>  
+        </div>
+        <img class="Gradient-1" src="../assets/images/Gradient-1.png" alt="">
+        <img class="Gradient-2" src="../assets/images/Gradient-2.png" alt="">
+        <form id="form-register">
+            <div class="name">
+                <div>
+                    <input class="first-name" type="text">
+                    <br>
+                    <label>First name</label>
+                    <br>  
+                </div>
+                <div>
+                    <input class="last-name" type="text">
+                    <br>
+                    <label for="">Last name</label>
+                    <br> 
+                </div>
+                
+            </div>
+                <input id="email-register" type="email">
+                <br>
+                <label for="">Email address</label>
+                <p id="error-email">Email đã tồn tại</p>
+                <input id="password-register" type="password">
+                <br>
+                <label for="">Password</label>
+                <p id="error-pass">Mật khẩu phải tối thiểu 6 ký tự</p>
+                <br>
+                <input id="confirm-password" type="password">
+                <br>    
+                <label for="">Confirm password</label>
+                <p id="error-confirm">Mật khẩu không trùng khớp</p>
+                <br> 
+            <button type="submit" style="cursor: pointer;">Sign up</button>
+            <h5>Already have an account?  <a href="./login.html" style="color: red;">Login</a></h5> 
+        </form>
+    </div>
+    <script src="../JS/register.js"></script>
+</body>
+</html>

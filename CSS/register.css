@@ -1,0 +1,161 @@
+body {
+    font-family: Segoe UI, sans-serif;
+    background-color: #1D2B44;
+}
+
+.container {
+    display: flex;
+    padding: 100px;
+    gap: 100px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.title{
+    margin-top: 220px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 57.6px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #FFFFFF;
+}
+
+.logo {
+    font-weight: 400;
+    font-size: 15.88px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-top: 48px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.Gradient-1 {
+    width: 220px;
+    height: 213px;
+    position: absolute;
+    top: 26px; /* Điều chỉnh để trùng vị trí */
+    left: 395px; /* Điều chỉnh để trùng vị trí */
+    border-radius: 50%; /* Làm tròn hoàn toàn */
+}
+
+.Gradient-2 {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 450px; /* Điều chỉnh để trùng vị trí */
+    left: 1300px; /* Điều chỉnh để trùng vị trí */
+    border-top-left-radius: 207px;
+    border-top-right-radius: 93px;
+    border-bottom-right-radius: 244.5px;
+    border-bottom-left-radius: 55.5px;
+}
+
+
+
+.name {
+    display: flex;
+    gap: 94px;
+}
+
+.first-name {
+    width: 163px;
+    height: 36px;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid #CED4DA;
+    padding-left: 10px;
+}
+
+.last-name {
+    width: 163px;
+    height: 36px;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid #CED4DA;
+    padding-left: 10px;
+}
+
+#form-register {
+    width: 492px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding-left: 66px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #E7E8EA;
+    position: fixed;
+    top: 0%;
+    transform: translateX(115%);
+}
+
+
+#email-register {
+    margin-top: 33px;
+    width: 392px;
+    height: 36px;
+    top: 95px;
+    left: 1px;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid #CED4DA;
+    padding-left: 10px;
+}
+
+#password-register {
+    margin-top: 33px;
+    width: 392px;
+    height: 36px;
+    top: 95px;
+    left: 1px;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid #CED4DA;
+    padding-left: 10px;
+}
+
+#confirm-password {
+    margin-top: 8px;
+    width: 392px;
+    height: 36px;
+    top: 95px;
+    left: 1px;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid #CED4DA;
+    padding-left: 10px;
+}
+
+button {
+    background-color: rgba(13, 110, 253, 1);
+    color: #FFFFFF;
+    width: 80.19999694824219px;
+    height: 38px;
+    top: 363px;
+    left: 1px;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid transparent;
+    margin-top: 37px;
+}
+
+#error-email {
+    display: none;
+    color: red;
+}
+
+#error-pass {
+    display: none;
+    color: red;
+}
+
+#error-confirm {
+    display: none;
+    color: red;
+}

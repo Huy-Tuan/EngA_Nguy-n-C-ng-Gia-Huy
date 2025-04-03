@@ -1,0 +1,107 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    height: 1018px;
+    padding: 100px;
+    position: fixed;
+}
+.content {
+    display: flex;
+    gap: 255px;
+}
+
+.header-form {
+    font-weight: 400px;
+    font-size: 19.69px;
+    line-height: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.icons-login {
+    width: 36px;
+    height: 38px;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #0D6EFD; 
+    border: 1px solid transparent;
+    border-radius: 4.8px;
+    width: 130.78px;
+    height: 48px;
+    color: white;
+    font-size: 19.84px;
+    line-height: 30px;
+    margin-top: 56px;
+    cursor: pointer;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+#validate-email {
+    display: none;
+    color: red;
+}
+
+#email-login {
+    margin-top: 25px;
+    width: 432px;
+    height: 46px;
+    border-radius: 4.8px;
+    border-width: 1px;
+    padding-left: 10px;
+}
+
+#validate-password {
+    display: none;
+    color: red;
+}
+
+#password-login {
+    width: 432px;
+    height: 46px;
+    border-radius: 4.8px;
+    border-width: 1px;
+    margin-top: 33px;
+    padding-left: 10px;
+}
+
+h6 {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.icon-footer {
+    width: 16.387500762939453px;
+    height: 16px;
+    top: -2px;
+}
+
+.footer-login {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    align-items: center;
+}
+
+.links-icon {
+    display: flex;
+    gap: 24px;
+    margin-right: 25px;
+}
+
+.icons-footer {
+    width: 14px;
+    height: 16px;
+    cursor: pointer;
+}
