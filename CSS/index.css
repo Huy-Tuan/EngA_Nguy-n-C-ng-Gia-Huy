@@ -277,3 +277,37 @@ body {
     letter-spacing: 0px;
     color: #52525B;
 }
+
+.category-link {
+    color: #4b4c4e;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.category-link.active {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .pagination button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  

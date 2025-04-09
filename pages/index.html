@@ -152,104 +152,13 @@
             ADD NEW ARTICLE
             <button id="btn-add-article" class="btn-add"><span class="up">+</span></button>
           </h2>
+          <nav id="category-nav">
+            <a href="#" class="category-link active">All blog posts</a>
+          </nav>
 
-          <button class="option-category">All blog posts</button>
-          <button class="option-category">Daily Journal</button>
-          <button class="option-category">Work & Career</button>
-          <button class="option-category">Personal Thoughts</button>
-          <button class="option-category">Emotions & Feelings</button>
+          <div class="grid-container" id="article-list"></div>
         </div>
-
-        <div class="grid-container" id="article-list">
-          <div class="card">
-            <img src="../assets/images/content1.png" alt="" />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-25</p>
-              <h4>A Productive Day at Work</h4>
-              <p>Today was a really productive day at work...</p>
-              <p class="category daily-journal">Daily Journal</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="../assets/images/content2.png" alt="" />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-24</p>
-              <h4>My First Job Interview Experience</h4>
-              <p>I had my first job interview today...</p>
-              <p class="category work-career">Work & Career</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="../assets/images/content3.png" alt="" />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-23</p>
-              <h4>Overthinking Everything</h4>
-              <p>Lately, I have been overthinking everything...</p>
-              <p class="category personal-thoughts">Personal Thoughts</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="../assets/images/content4.png" alt="" />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-16</p>
-              <h4>How Collaboration Makes Us Better Designers</h4>
-              <p>Collaboration can make our teams stronger...</p>
-              <p class="category work-career">Work & Career</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="../assets/images/content5.png" alt="" />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-15</p>
-              <h4>Our Top 10 JavaScript Frameworks to Use</h4>
-              <p>A curated list of the best JavaScript frameworks...</p>
-              <p class="category work-career">Work & Career</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="../assets/images/content6.png" alt="" />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-05</p>
-              <h4>Podcast: Creating a Better CX Community</h4>
-              <p>Creating a community doesn't need to be complicated...</p>
-              <p class="category personal-thoughts">Emotions & Feelings</p>
-            </div>
-          </div>
-        </div>
-        <div class="page">
-          <button class="prev">
-            <img
-              style="
-                width: 11.431407928466797px;
-                height: 11.431407928466797px;
-                border-width: 1.64px;
-              "
-              src="../assets/icons/arrow-left.png"
-              alt=""
-            />
-            Previous
-          </button>
-          <div class="page-number">
-            <button class="btn-page first">1</button>
-            <button class="btn-page">2</button>
-            <button class="btn-page">...</button>
-            <button class="btn-page">8</button>
-            <button class="btn-page">9</button>
-          </div>
-
-          <button class="next">
-            Next
-            <img
-              style="
-                width: 11.431407928466797px;
-                height: 11.431407928466797px;
-                border-width: 1.64px;
-              "
-              src="../assets/icons/arrow-right.png"
-              alt=""
-            />
-          </button>
-        </div>
+        <div id="pagination" class="pagination"></div>
       </main>
       <footer>
         <div class="information">
