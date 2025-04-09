@@ -15,10 +15,12 @@ body {
 .header {
     display: flex;
     justify-content: end;
+    align-items: center;
     gap: 24px;
     padding: 10px 20px;
     background-color: #fff;
     border-bottom: 1px solid #E0E0E0;
+    padding-right: 50px;
 }
 
 .nav {
@@ -83,15 +85,15 @@ h3 {
 .manage {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .manage-icon {
     width: 200px;
-    height: 40px;
+    height: 20px;
     border-radius: 6px;
     padding: 8px;
-    background-color: #FFF;
+    background-color: #D7EDFF;
     border: 1px solid #E0E0E0;
     display: flex;
     align-items: center;
@@ -103,6 +105,15 @@ h3 {
 .manage-icon:hover {
     background-color: #F0F0F0;
 }
+
+.manage-user  a{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    text-decoration: none;
+    color: #0E73F6;
+}
+
 
 table {
     width: 1070px;

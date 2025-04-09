@@ -5,6 +5,7 @@ body  {
 
 .header {
     display: flex;
+    align-items: center;
     justify-content: end;
     gap: 24px;
     padding: 10px 20px;
@@ -40,10 +41,10 @@ body  {
 
 .manage-icon{
     width: 200px;
-    height: 40px;
+    height: 20px;
     border-radius: 6px;
     padding: 8px;
-    background-color: #FFF;
+    background-color: #D7EDFF;
     border: 1px solid #E0E0E0;
     display: flex;
     align-items: center;
@@ -60,6 +61,20 @@ body  {
 
 }
 
+.manage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.manage-user  a{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    text-decoration: none;
+    color: #0E73F6;
+}
+
 #new-name-category {
     width: 988px;
     height: 37px;
@@ -73,6 +88,18 @@ body  {
 }
 
 #btnAdd {
+    width: 966px;
+    height: 35px;
+    top: 157.91px;
+    left: 20px;
+    border-radius: 5px;
+    background-color: #28A745;
+    border: 1px solid transparent;
+    color: white;
+    margin-top: 10px;
+}
+
+#btnEdit {
     width: 966px;
     height: 35px;
     top: 157.91px;
@@ -102,4 +129,60 @@ footer {
     display: flex;
     justify-content: space-around;
     margin-top: 60px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+.modal {
+    background: white;
+    height: fit-content;
+    border-radius: 5px;
+}
+.modal-dialog {
+    padding: 15px;
+}
+
+.opt {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+.modal-content {
+
+}
+.modal-header {
+}
+.modal-title {
+}
+.btn-close {
+    margin-right: 20px;
+    border: 1px solid transparent;
+    
+}
+.modal-footer {
+}
+.btn {
+}
+.btn-secondary {
+    margin-right: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+.btn-primary {
+    background-color: rgb(43, 167, 255);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
 }

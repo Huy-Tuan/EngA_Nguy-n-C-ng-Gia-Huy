@@ -117,8 +117,8 @@ body {
 
 .up {
     position: absolute;
-    right: -0.6px;
-    top: -14.5px;
+    right: 1px;
+    top: -10.5px;
 }
 
 .option-category {
@@ -148,6 +148,12 @@ body {
     color: #667085;
     border-radius: 2px;
     padding: 6px 10px;
+    margin-top: 20px;
+}
+
+.first {
+    background-color: #F9F5FF;
+    border-radius: 6px;
 }
 
 .information {
@@ -209,7 +215,7 @@ body {
     display: none;
 }
 
-.profile-container:hover .dropdown-menu {
+.dropdown-menu.active{
     display: block;
 }
 
@@ -251,3 +257,23 @@ body {
     text-align: center;
 }
 
+.articles-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.display-a {
+    text-decoration: none;
+}
+
+.title {
+    color: black;
+}
+
+.content {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    color: #52525B;
+}

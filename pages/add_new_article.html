@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add New Article</title>
-    <link rel="stylesheet" href="../CSS/add_new_article.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../CSS/add_new_article.css" />
+  </head>
+  <body>
     <h1>📝 Add New Article</h1>
     <form id="form">
-        <div class="title">
-            <label class="h" for="">Title:</label><br>
-            <input class="new-title" type="text"><br> 
-        </div>
-        <div class="category">
-            <label class="h" for="">Article categories:</label><br>
-            <input class="new-article-category" type="text"><br>
-        </div>
-        <div class="mood-h">
-            <label class="h" for="">Mood</label><br>
-            <input class="mood" type="text"><br>  
-        </div>
-        <div class="content">
-            <label class="h" for="">Content:</label><br>
-            <input type="text" class="new-content"><br>  
-        </div>
-        <div class="option">
-            <label class="h" for="">Status</label>
+      <div id="" class="category">
+        <label class="h" for="">Category:</label><br />
+        <select name="list-category" id="list-category">
+          
+        </select>
+      </div>
+      <div class="title">
+        <label class="h" for="">Title:</label><br />
+        <input id="input-title" class="new-title" type="text" /><br />
+      </div>
+      <div class="mood-h">
+        <label class="h" for="">Mood</label><br />
+        <input class="mood" type="text" /><br />
+      </div>
+      <div class="content">
+        <label class="h" for="">Content:</label><br />
+        <input id="input-content" type="text" class="new-content" /><br />
+      </div>
+      <div class="option">
+        <label id="input-status" class="h" for="">Status</label>
 
-            <input type="radio" name="status" id="public" value="Public">
-            <label class="h" for="public">Public</label>
+        <input type="radio" name="status" id="public" value="Public" />
+        <label class="h" for="public">Public</label>
 
-            <input type="radio" name="status" id="private" value="Private">
-            <label class="h" for="private">Private</label> 
+        <input type="radio" name="status" id="private" value="Private" />
+        <label class="h" for="private">Private</label>
+      </div>
+
+      <div class="upload-area" id="upload-area">
+        <input type="file" id="input-image" accept="image/*" hidden />
+        <div class="upload-box" onclick="document.getElementById('input-image').click()">
+          <div class="icon">☁️</div>
+          <p>Browse and choose the files you want to upload from your computer</p>
         </div>
-        <div>
-           <button class="add-new-article">Add</button> 
-        </div>
+        <img id="preview-image" style="display:none; max-width: 200px; height: auto;" />
+      </div>      
+      
+      <div>
+        <button id="btn-add" class="add-new-article">Add</button>
+      </div>
     </form>
-</body>
+    <script src="../JS/add_new_article.js"></script>
+  </body>
 </html>

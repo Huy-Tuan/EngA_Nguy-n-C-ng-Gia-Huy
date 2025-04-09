@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Entries</title>
-    <link rel="stylesheet" href="../CSS/entries_manager.css">
+    <title>Quản lý bài viết</title>
+    <link rel="stylesheet" href="../CSS/manage_article.css">
 </head>
 <body>
     <div class="container">
@@ -12,19 +12,9 @@
             <img style="width: 23.516040802001953px; height: 26.351112365722656px;" src="../assets/icons/Mail.png" alt="">
             <img style="width: 30px; height: 23.527742385864258px;" src="../assets/icons/bell/Icon/Outline/bell.png" alt="">
             <img style="width: 43px; height: 43px;" src="../assets/images/avatar.png" alt="">
-        </header> 
+        </header>
 
         <main>
-            <div class="nav-search">
-                <img style="
-                position: absolute;
-                margin-left: 10px;
-                width: 23.516040802001953px;
-                height: 23.516040802001953px;
-                " src="../assets/icons/search.png" alt="">
-                <input class="search-article" type="search" placeholder="Search Article Categories">
-            </div>
-
             <div class="content">
                 <div class="manage">
                     <div class="manage-user">
@@ -44,7 +34,7 @@
                         
                         </a>
                     </div>
-        
+
                     <div class="manage-user">
                         <a
                         href="../pages/entries_manager.html"
@@ -59,7 +49,7 @@
                         Manage Entries
                         </a>
                     </div>
-        
+
                     <div class="manage-user">
                         <a
                         href="../pages/manage_article.html"
@@ -74,7 +64,7 @@
                         Manage Article
                         </a>
                     </div>
-        
+
                     <div class="manage-user">
                         <a
                         href="../pages/login.html"
@@ -90,83 +80,83 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="newCategory">
-                    <h1 style="margin-left: 320px;">📂 Manage Categories</h1>
-                    <label for="">Category Name: </label>
-                    <br>
-                    <input id="new-name-category" type="text" placeholder="Enter category name">
-                    <br>
-                    <button style="cursor: pointer;" id="btnAdd">Add category</button>
-                    <button class="hidden" style="cursor: pointer;" id="btnEdit">Edit category</button>
-                    <h3>📋 Category List</h3>
-                    <table>
-                        <thead>
-                            <th>#</th>
-                            <th>Category Name</th>
-                            <th>Actions</th>
-                        </thead>
-                        <tbody id="list-category"></tbody>
-                    </table>
-                </div>
-        </main>
-
-        <footer>
             <div>
-                <button>
-                  <img style="width: 11.431407928466797px;
-                    height: 11.431407928466797px;
-                    border-width: 1.64px;
-                    " src="../assets/icons/arrow-left.png" alt="">
-                    Previous  
-                </button>
+                <h2 style="text-align: center;">Quản lý bài viết</h2>
+                <a href="../pages/add_new_article.html"><button class="btnAdd" id="add-article">Thêm bài viết</button></a>
                 
-            </div>
+                <table id="table">
+                    <thead id="title">
+                        <th>Ảnh</th>
+                        <th>Tiêu đề</th>
+                        <th>Chủ đề</th>
+                        <th>Nội dung</th>
+                        <th>Trạng thái</th>
+                        <th>Chỉnh sửa trạng thái</th>
+                        <th>Hành động</th>
+                    </thead>
 
-            <div>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>...</button>
-                <button>4</button>
-                <button>5</button>
+                    <tbody id="list-article"></tbody>
+                </table>
+                <div id="pagination" class="pagination"></div>  
             </div>
+            
+            </div>
+        </div>
 
-            <div>
-                <button>
-                Next
-                <img style="
-                    width: 11.431407928466797px;
-                    height: 11.431407928466797px;
-                    border-width: 1.64px;
-                    " src="../assets/icons/arrow-right.png" alt=""> 
-                </button>
-                
-            </div>
-        </footer>
         <div id="modal-delete" class="modal-overlay hidden">
-        <div class="modal" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Bạn có chắc chẵn muốn xóa:</h5>
-                  <div class="opt">
-                      <div>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="yes">Yes</button> 
-                        </div>
-                        <div>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="no">No</button>
+            <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Bạn có chắc chẵn muốn xóa:</h5>
+                      <div class="opt">
+                          <div>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="yes">Yes</button> 
+                            </div>
+                            <div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="no">No</button>
+                            </div>
                         </div>
                     </div>
+                    <br>
+                  </div>
                 </div>
-                <br>
-              </div>
+              </div>    
             </div>
-          </div>    
-        </div>
-        
+
+            <div id="modal-edit" class="modal-overlay hidden">
+                <div class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Sửa thông tin:</h5>
+                          <div class="opt">
+                            <div>
+                                <label for="">Chủ đề:</label>
+                                <br>
+                                <input type="text" id="edit-title"> 
+                            </div>
+                              
+                            <div>
+                                <label for="">Nội dung:</label>
+                                <br>
+                                <input type="text" id="edit-content">  
+                            </div>
+                            
+                            <div>
+                                <button id="btn-cancel">Close</button>
+                                <button id="btn-save">Save change</button>
+                            </div>
+                              
+                            </div>
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                  </div>    
+                </div>
+        </main>
     </div>
-       <script src="../JS/entries_manager.js"></script> 
-       
+    <script src="../JS/manage_article.js"></script>
 </body>
 </html>

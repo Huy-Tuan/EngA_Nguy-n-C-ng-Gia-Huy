@@ -1,40 +1,40 @@
-const users = [
-    {
-        id: 1,
-        firstname: "Lê",
-        lastname: "Minh Thu",
-        email: "minhthu@gmail.com",
-        password: "123456abc"
-    },
-    {
-        id: 2,
-        firstname: "Vũ",
-        lastname: "Hồng Vân",
-        email: "hongvan@yahoo.com",
-        password: "abc12345"
-    }
-]
-
-localStorage.setItem("users", JSON.stringify(users));
 const formLoginElement = document.getElementById("form-login");
 const emailLoginElement = document.getElementById("email-login");
 const passwordLoginElement = document.getElementById("password-login");
-const errorEmail = document.getElementById("validate-email");
-const errorPass = document.getElementById("validate-password");
+const validateEmail = document.getElementById("error-email");
+const validatePass = document.getElementById("error-pass");
+const error = document.getElementById("validate");
 
 formLoginElement.addEventListener("submit", function (e) {
     e.preventDefault();
-    let flag = 0;
-   for (let i = 0; i < users.length; i++) {
-        if (emailLoginElement.value === users[i].email && passwordLoginElement.value === users[i].password) {
-            flag = 1;
-        }
-   } 
 
-    if (flag == 1) {
-        window.location.href = "../pages/index.html"
+    // Lấy danh sách user từ localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Ẩn lỗi cũ mỗi lần submit
+    validateEmail.style.display = "none";
+    validatePass.style.display = "none";
+    error.style.display = "none";
+
+    // Kiểm tra input rỗng
+    if (emailLoginElement.value === "") {
+        validateEmail.style.display = "block";
+        return;
+    }
+
+    if (passwordLoginElement.value === "") {
+        validatePass.style.display = "block";
+        return;
+    }
+
+    // Tìm user khớp email và password
+    const isValidUser = users.some(user => 
+        user.email === emailLoginElement.value && user.password === passwordLoginElement.value
+    );
+
+    if (isValidUser) {
+        window.location.href = "../pages/index.html"; // Chuyển trang nếu đúng
     } else {
-        errorEmail.style.display = "block";
-        errorPass.style.display = "block";
+        error.style.display = "block"; // Hiện lỗi nếu sai
     }
 });

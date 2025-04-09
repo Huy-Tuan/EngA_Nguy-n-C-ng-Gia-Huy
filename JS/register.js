@@ -48,7 +48,7 @@ formRegisterElement.addEventListener("submit", function (e) {
         flag = 1;
     }
 
-    if (validateEmail(emailRegisterElement)){
+    if (!validateEmail(emailRegisterElement.value)){
         errorEmail.textContent = "Email không đúng định dạng";
         errorEmail.style.display = "block";
         flag = 0;
@@ -74,13 +74,29 @@ formRegisterElement.addEventListener("submit", function (e) {
         flag = 1;
     }
 
-    firstNameElement.innerHTML = "";
-    lastNameElement.innerHTML = "";
-    emailRegisterElement.innerHTML = "";
-    passwordRegisterElement.innerHTML = "";
-    confirmPassword.innerHTML = "";
-
     if (flag) {
+        // Tạo user mới
+        const newUser = {
+            id: Date.now(), // ID duy nhất theo timestamp
+            name: `${firstNameElement.value} ${lastNameElement.value}`,
+            email: emailRegisterElement.value,
+            username: emailRegisterElement.value.split("@")[0], // tạo username từ email
+            password: passwordRegisterElement.value,
+            status: "active"
+        };
+    
+        // Thêm vào danh sách local
+        userLocal.push(newUser);
+        localStorage.setItem("users", JSON.stringify(userLocal));
+    
+        // Xóa form
+        firstNameElement.value = "";
+        lastNameElement.value = "";
+        emailRegisterElement.value = "";
+        passwordRegisterElement.value = "";
+        confirmPassword.value = "";
+    
+        // Điều hướng
         window.location.href = "../pages/login.html"; 
     }
 });

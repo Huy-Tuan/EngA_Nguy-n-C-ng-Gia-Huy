@@ -1,0 +1,51 @@
+.avt {
+    position: relative;
+    left: 220px;
+    top: 50px;
+}
+
+.detail {
+    width: 1000px;
+    background-color: #F7F8F9;
+    margin: auto;
+    line-height: 30px;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+
+.like-comment {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.interact {
+    width: 20px;
+    height: 20px;
+}
+
+.comment-1 {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content-1 {
+    width: 800px;
+    background-color: #F7F8F9;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+.comment-2 {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.content-2 {
+    width: 800px;
+    background-color: #F7F8F9;
+    padding-left: 20px;
+    border-radius: 5px;
+}

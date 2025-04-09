@@ -47,7 +47,7 @@
                           </div>
                       </div>
                       <div class="nav-links">
-                          <a href="">View profile</a>
+                          <a class="view-profile" href="../pages/user_manager.html">View profile</a>
                           <a href="">Update profile picture</a>
                           <a href="">Change password</a>
                       </div>
@@ -63,6 +63,7 @@
           Recent blog posts
         </h2>
         <div class="articles-content">
+          <a href="article_details.html">
           <div class="card" style="width: 593px; margin-left: 150px">
             <img
               style="width: 592px; height: 268px"
@@ -70,18 +71,21 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <p class="date">Date: 2025-02-25</p>
-              <h4>A Productive Day at Work</h4>
-              <p class="card-text">
-                Today was a really productive day at work. I managed to finish a
-                report ahead of schedule and received positive feedback from my
-                manager.
-              </p>
-              <p class="category daily-journal">Daily Journal</p>
-            </div>
+              <div class="card-body">
+                <p class="date">Date: 2025-02-25</p>
+                <h4>A Productive Day at Work</h4>
+                <p class="card-text">
+                  Today was a really productive day at work. I managed to finish a
+                  report ahead of schedule and received positive feedback from my
+                  manager.
+                </p>
+                <p class="category daily-journal">Daily Journal</p>
+              </div> 
+            </a>
+            
           </div>
           <div class="content-right">
+            <a href=""></a>
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
@@ -135,19 +139,19 @@
         </div>
 
         <div class="add-new-article">
-          <h1
+          <h2
             style="
               justify-content: center;
               display: flex;
               gap: 20px;
-              box-shadow: 0px 4px 4px 0px #00000040;
+              text-shadow: 0px 4px 4px 0px #00000040;
               color: #f80101;
               margin-top: 20px;
             "
           >
             ADD NEW ARTICLE
-            <button class="btn-add"><span class="up">+</span></button>
-          </h1>
+            <button id="btn-add-article" class="btn-add"><span class="up">+</span></button>
+          </h2>
 
           <button class="option-category">All blog posts</button>
           <button class="option-category">Daily Journal</button>
@@ -156,7 +160,7 @@
           <button class="option-category">Emotions & Feelings</button>
         </div>
 
-        <div class="grid-container">
+        <div class="grid-container" id="article-list">
           <div class="card">
             <img src="../assets/images/content1.png" alt="" />
             <div class="card-body">
@@ -207,7 +211,7 @@
             <div class="card-body">
               <p class="date">Date: 2025-02-05</p>
               <h4>Podcast: Creating a Better CX Community</h4>
-              <p>Creating a community doesn’t need to be complicated...</p>
+              <p>Creating a community doesn't need to be complicated...</p>
               <p class="category personal-thoughts">Emotions & Feelings</p>
             </div>
           </div>
@@ -226,7 +230,7 @@
             Previous
           </button>
           <div class="page-number">
-            <button class="btn-page">1</button>
+            <button class="btn-page first">1</button>
             <button class="btn-page">2</button>
             <button class="btn-page">...</button>
             <button class="btn-page">8</button>
@@ -309,6 +313,6 @@
         </div>
       </footer>
     </div>
-    <script src=""></script>
+    <script src="../JS/index.js"></script>
   </body>
 </html>
