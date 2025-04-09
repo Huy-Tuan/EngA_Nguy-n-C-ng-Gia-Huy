@@ -33,6 +33,7 @@
 .like-comment {
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .modal-overlay {
@@ -66,6 +67,24 @@
 
 .close {
     margin-left: 90%;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.comment-style {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+.btndelet {
+    border-radius: 2px;
+    border: 1px solid transparent;
+    background: transparent;
     cursor: pointer;
 }
 

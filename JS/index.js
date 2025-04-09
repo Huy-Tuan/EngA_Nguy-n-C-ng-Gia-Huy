@@ -2,16 +2,17 @@ const profileContainer = document.querySelector(".profile-container");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const addArticle = document.querySelector("#btn-add-article");
 const articleList = document.getElementById("article-list");
-const detail = document.getElementById("");
-
+const paginationContainer = document.getElementById("pagination"); // Thêm thẻ này trong HTML
 const articles = JSON.parse(localStorage.getItem("articles")) || [];
+
+const articlesPerPage = 5;
+let currentPage = 1;
 
 profileContainer.addEventListener("click", function (event) {
     event.stopPropagation();
-    dropdownMenu.classList.toggle("active"); // Bật/tắt menu
+    dropdownMenu.classList.toggle("active");
 });
 
-// Ẩn menu khi click ra ngoài
 document.addEventListener("click", function (event) {
     if (!profileContainer.contains(event.target)) {
         dropdownMenu.classList.remove("active");
@@ -20,13 +21,13 @@ document.addEventListener("click", function (event) {
 
 addArticle.addEventListener("click", function () {
     console.log("Clicked Add Article");
-   window.location.href = "add_new_article.html"; 
+    window.location.href = "add_new_article.html";
 });
 
 function goToDetail(id) {
     localStorage.setItem("selectedArticleId", id);
     window.location.href = "pages/article_details.html";
-  }  
+}
 
 function renderArticles(list) {
     articleList.innerHTML = "";
@@ -50,12 +51,10 @@ function renderArticles(list) {
                 <p class="category ${a.category}">${a.category}</p>
             </div>
         </a>
-        `
-        ;
+        `;
 
         articleList.appendChild(card);
 
-        // Gắn click để lưu bài viết & chuyển trang
         card.querySelector("a").addEventListener("click", function (e) {
             e.preventDefault();
             localStorage.setItem("selectedArticle", JSON.stringify(a));
@@ -64,20 +63,62 @@ function renderArticles(list) {
     });
 }
 
-renderArticles(articles);
+function paginateArticles(list, page) {
+    const start = (page - 1) * articlesPerPage;
+    const end = start + articlesPerPage;
+    const paginatedList = list.slice(start, end);
+    renderArticles(paginatedList);
+    renderPagination(list.length, page);
+}
+
+function renderPagination(totalArticles, currentPage) {
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    paginationContainer.innerHTML = "";
+
+    const prevBtn = document.createElement("button");
+    prevBtn.innerText = "Prev";
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+            paginateArticles(articles, --currentPage);
+        }
+    });
+    paginationContainer.appendChild(prevBtn);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement("button");
+        pageBtn.innerText = i;
+        if (i === currentPage) pageBtn.classList.add("active");
+        pageBtn.addEventListener("click", () => {
+            paginateArticles(articles, i);
+            currentPage = i;
+        });
+        paginationContainer.appendChild(pageBtn);
+    }
+
+    const nextBtn = document.createElement("button");
+    nextBtn.innerText = "Next";
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.addEventListener("click", () => {
+        if (currentPage < totalPages) {
+            paginateArticles(articles, ++currentPage);
+        }
+    });
+    paginationContainer.appendChild(nextBtn);
+}
 
 window.addEventListener("DOMContentLoaded", function () {
     const nav = document.getElementById("category-nav");
     const categories = JSON.parse(localStorage.getItem("categories")) || [];
 
-     // Thêm sự kiện click cho "All blog posts"
-     const allPostsLink = document.querySelector(".category-link");
-     allPostsLink.addEventListener("click", function () {
-         const allLinks = document.querySelectorAll(".category-link");
-         allLinks.forEach(link => link.classList.remove("active"));
-         this.classList.add("active");
+    const allPostsLink = document.querySelector(".category-link");
+    allPostsLink.addEventListener("click", function () {
+        const allLinks = document.querySelectorAll(".category-link");
+        allLinks.forEach(link => link.classList.remove("active"));
+        this.classList.add("active");
 
-         renderArticles(addArticle);
+        paginateArticles(articles, 1);
+        currentPage = 1;
     });
 
     categories.forEach(category => {
@@ -85,17 +126,17 @@ window.addEventListener("DOMContentLoaded", function () {
         link.href = "#";
         link.className = "category-link";
         link.textContent = category.name;
-        // Gắn sự kiện click để set "active"
         link.addEventListener("click", function () {
             const allLinks = document.querySelectorAll(".category-link");
-            allLinks.forEach(link => link.classList.remove("active")); // Bỏ active của tất cả
-            this.classList.add("active"); // Active cho thằng được click
+            allLinks.forEach(link => link.classList.remove("active"));
+            this.classList.add("active");
 
-            // Lọc bài viết theo danh mục
             const filtered = articles.filter(a => a.category === category.name);
-            renderArticles(filtered);
+            paginateArticles(filtered, 1);
+            currentPage = 1;
         });
         nav.appendChild(link);
+    });
 
-        });
+    paginateArticles(articles, currentPage);
 });

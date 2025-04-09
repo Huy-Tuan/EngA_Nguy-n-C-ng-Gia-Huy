@@ -41,33 +41,32 @@ likeBtn.addEventListener("click", () => {
 });
 
 // Hiển thị danh sách bình luận
+const commentBtn = document.getElementById("openCommentModal");
+const commentCount = document.querySelector("#commentCount");
+commentCount.innerText = currentArticle.comments.length;
 const commentList = document.getElementById("commentList");
+
 function renderComments() {
   commentList.innerHTML = "";
+  commentCount.innerText = currentArticle.comments.length;
+  updateArticle(currentArticle);
+
   currentArticle.comments.forEach((cmt, index) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      ${cmt} 
-      <button onclick="deleteComment(${index})">Xóa</button>
+    <div class = "comment-style">
+    ${cmt} 
+    <button class = "btndelet" onclick="deleteComment(${index})">Xóa</button>
+    </div>
     `;
     commentList.appendChild(li);
   });
+  updateArticle(currentArticle);
 }
 renderComments();
 
 // Thêm bình luận
 const commentForm = document.getElementById("commentForm");
-commentForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const input = document.getElementById("commentInput");
-  const text = input.value.trim();
-  if (text) {
-    currentArticle.comments.push(text);
-    input.value = "";
-    renderComments();
-    updateArticle(currentArticle);
-  }
-});
 
 // Xóa bình luận
 window.deleteComment = function (index) {
@@ -105,5 +104,11 @@ window.addEventListener("click", (e) => {
 
 formComment.addEventListener("submit", function (e) {
     e.preventDefault();
+    const newComment = commentInput.value.trim();
+    if (newComment) {
+    currentArticle.comments.push(newComment);
+    commentInput.value = "";
+    renderComments(); // render lại danh sách và cập nhật count
+  }
     modal.classList.add("hidden");
 });
