@@ -8,23 +8,37 @@ const btnEdit = document.getElementById("btnEdit");
 const modalDelet = document.getElementById("modal-delete");
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
+const back = document.getElementById("back");
+const logoutBtn = document.getElementById("logout");
+
+logoutBtn.addEventListener("click", function () {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "../pages/login.html";
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn", "true");
+  
+    if (isLoggedIn !== "true") {
+      window.location.replace("../pages/homepage.html");
+    }
+
+    const logged = JSON.parse(localStorage.getItem("logged")) || null;
+    if(!logged) {
+        this.window.location.href = "./login.html"
+    }
+  });
+
+logoutBtn.addEventListener("click", function () {
+   localStorage.removeItem("logged");
+});
+
+back.addEventListener("click", function () {
+   window.location.href = "../pages/index.html"; 
+});
 
 if (!localStorage.getItem("categories")) {
-        const entries = [
-        {
-            id: 1,
-            name: "Nhật ký học tập"
-        },
-
-        {
-            id: 2,
-            name: "Nhật ký mục tiêu và kế hoạch"
-        },
-        {
-            id: 3,
-            name: "Nhật ký trải nghiệm - học qua đời sống",
-        }
-    ];
+        const entries = [];
 
     localStorage.setItem("categories", JSON.stringify(entries));
 }
@@ -66,6 +80,13 @@ btnEdit.addEventListener("click", function () {
 
 btnAdd.addEventListener("click", function (e) {
     e.preventDefault();
+    let a = Math.ceil(Math.random() * 255);
+    let b = Math.ceil(Math.random() * 255);
+    let c = Math.ceil(Math.random() * 255);
+    let d = 0.1;
+
+    let colorText = `rgb(${a}, ${b}, ${c})`;
+    let colorBg = `rgba(${a}, ${b}, ${c}, ${d})`;
     type = "add";
     nameCate = newCate.value.trim();
 
@@ -84,6 +105,8 @@ btnAdd.addEventListener("click", function (e) {
     const newCategoryObj = {
         id: newId,
         name: nameCate,
+        color: colorText,
+        background: colorBg,
     }
     categories.push(newCategoryObj);   
     

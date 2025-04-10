@@ -1,6 +1,6 @@
 const back = document.getElementById("back");
-const formComment = document.getElementById("commentForm");
 const modal = document.getElementById("commentModal");
+const btnSubmit = document.getElementById("send-comment");
 // Lấy id bài viết từ localStorage
 const id = localStorage.getItem("selectedArticleId");
 
@@ -91,24 +91,24 @@ const commentModal = document.getElementById("commentModal");
 const closeModal = document.getElementById("closeModal");
 
 openCommentModal.addEventListener("click", () => {
-  commentModal.style.display = "block";
+  commentModal.classList.remove("hidden");
 });
 closeModal.addEventListener("click", () => {
-  commentModal.style.display = "none";
+  commentModal.classList.add("hidden");
 });
 window.addEventListener("click", (e) => {
   if (e.target == commentModal) {
-    commentModal.style.display = "none";
+    commentModal.classList.add("hidden");
   }
 });
 
-formComment.addEventListener("submit", function (e) {
+btnSubmit.addEventListener("click", function (e) {
     e.preventDefault();
     const newComment = commentInput.value.trim();
     if (newComment) {
     currentArticle.comments.push(newComment);
     commentInput.value = "";
+    commentModal.classList.add("hidden");
     renderComments(); // render lại danh sách và cập nhật count
   }
-    modal.classList.add("hidden");
 });

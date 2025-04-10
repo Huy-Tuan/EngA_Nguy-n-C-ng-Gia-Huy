@@ -3,7 +3,39 @@ const dropdownMenu = document.querySelector(".dropdown-menu");
 const addArticle = document.querySelector("#btn-add-article");
 const articleList = document.getElementById("article-list");
 const paginationContainer = document.getElementById("pagination"); // Thêm thẻ này trong HTML
+const logout = document.getElementById("logout");
+
+window.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn", "true");
+  
+    if (isLoggedIn !== "true") {
+      window.location.replace("../pages/homepage.html");
+    }
+
+    const logged = JSON.parse(localStorage.getItem("logged")) || null;
+    if(!logged) {
+        this.window.location.href = "./login.html"
+    }
+  });
+
+logout.addEventListener("click", function () {
+   localStorage.removeItem("logged");
+});
+
 const articles = JSON.parse(localStorage.getItem("articles")) || [];
+
+    let a = Math.ceil(Math.random() * 255);
+    let b = Math.ceil(Math.random() * 255);
+    let c = Math.ceil(Math.random() * 255);
+    let d = 0.1;
+
+    let colorText = `rgb(${a}, ${b}, ${c})`;
+    let colorBg = `rgba(${a}, ${b}, ${c}, ${d})`;
+
+const randomColor = {
+    color: colorText,
+    background: colorBg
+}
 
 const articlesPerPage = 5;
 let currentPage = 1;
@@ -31,7 +63,7 @@ function goToDetail(id) {
 
 function renderArticles(list) {
     articleList.innerHTML = "";
-
+    
     list.forEach(a => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -48,7 +80,7 @@ function renderArticles(list) {
                 <p class="date">Date: ${a.createdAt || "2025-04-09"}</p>
                 <h4 class="title">${a.title}</h4>
                 <p class="content">${a.content.slice(0, 100)}</p>
-                <p class="category ${a.category}">${a.category}</p>
+                <p style="color: ${a.color}; background: ${a.background}" class="category ${a.category}">${a.category}</p>
             </div>
         </a>
         `;

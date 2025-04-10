@@ -12,3 +12,12 @@ btnSignIn.addEventListener("click", function (e) {
 
     window.location.href = "../pages/login.html";
 });
+
+window.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+  
+    if (isLoggedIn !== "true") {
+      window.location.replace("../pages/login.html"); // hoặc login.html nếu muốn
+    }
+  });
+  

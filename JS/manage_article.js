@@ -8,8 +8,39 @@ const newTitleArt = document.getElementById("edit-title");
 const newContentArt = document.getElementById("edit-content");
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
+const back = document.getElementById("back");
+const logoutBtn = document.getElementById("logout");
+
+logoutBtn.addEventListener("click", function () {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "../pages/login.html";
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn", "true");
+  
+    if (isLoggedIn !== "true") {
+      window.location.replace("../pages/homepage.html");
+    }
+
+    const logged = JSON.parse(localStorage.getItem("logged")) || null;
+    if(!logged) {
+        this.window.location.href = "./login.html"
+    }
+  });
+
+logoutBtn.addEventListener("click", function () {
+   localStorage.removeItem("logged");
+});
+
+back.addEventListener("click", function () {
+   window.location.href = "../pages/index.html"; 
+});
 
 let articles = JSON.parse(localStorage.getItem("articles")) || [];
+
+let currentPage = 1;
+const itemsPerPage = 5;
 
 function renderPagination() {
     pagination.innerHTML = "";
@@ -52,10 +83,6 @@ function renderPagination() {
     });
     pagination.appendChild(nextBtn);
 }
-
-
-let currentPage = 1;
-const itemsPerPage = 5;
 
 function renderArticle() {
     articleBody.innerHTML = "";

@@ -2,6 +2,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.close {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-btn {
+    cursor: pointer;
+}
+
 #form {
     display: flex;
     flex-direction: column;

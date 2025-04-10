@@ -5,6 +5,8 @@ const validateEmail = document.getElementById("error-email");
 const validatePass = document.getElementById("error-pass");
 const error = document.getElementById("validate");
 
+let logged = JSON.parse(localStorage.getItem("logged")) || [];
+
 formLoginElement.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -33,7 +35,10 @@ formLoginElement.addEventListener("submit", function (e) {
     );
 
     if (isValidUser) {
-        window.location.href = "../pages/index.html"; // Chuyển trang nếu đúng
+        // Lưu trạng thái đăng nhập
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("logged", JSON.stringify(emailLoginElement.value));
+        window.location.replace("../pages/index.html"); // Chuyển trang nếu đúng
     } else {
         error.style.display = "block"; // Hiện lỗi nếu sai
     }

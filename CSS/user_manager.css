@@ -182,8 +182,20 @@ tr:hover {
     background: #E8F0FE;
 }
 
-footer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 60px;
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+.pagination button {
+    margin: 0 4px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+    border: none;
 }

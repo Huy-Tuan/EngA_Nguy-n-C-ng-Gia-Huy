@@ -6,20 +6,25 @@ const form = document.getElementById("form");
 const selectCate = document.getElementById("list-category");
 const inputImage = document.getElementById("input-image");
 const previewImage = document.getElementById("preview-image");
+const btnClose = document.getElementById("close-btn");
 
 let categories = JSON.parse(localStorage.getItem("categories")) || [];
 let articles = JSON.parse(localStorage.getItem("articles")) || [];
 
-let selectedImageBase64 = ""; // 👉 ảnh sẽ lưu tại đây
+btnClose.addEventListener("click", function () {
+  window.history.back();
+});
 
-// 🧠 Đọc file khi người dùng chọn ảnh
+let selectedImageBase64 = ""; //  ảnh sẽ lưu tại đây
+
+// Đọc file khi người dùng chọn ảnh
 inputImage.addEventListener("change", function (event) {
   const file = event.target.files[0];
 
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      selectedImageBase64 = e.target.result; // 💾 lưu ảnh
+      selectedImageBase64 = e.target.result; //  lưu ảnh
       previewImage.src = selectedImageBase64;
       previewImage.style.display = "block";
     };
@@ -31,18 +36,22 @@ inputImage.addEventListener("change", function (event) {
   }
 });
 
-// 📥 Render danh mục
+let idCate;
+
+//  Render danh mục
 categories.forEach(c => {
   const row = document.createElement("option");
+  idCate = row.id;
   row.value = c.name;
   row.textContent = c.name;
   selectCate.appendChild(row);
 });
 
-// 📝 Submit form
+
+//  Submit form
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-
+  
   const titleValue = inputTitle.value.trim();
   const cateValue = selectCate.value.trim();
   const contentValue = inputContent.value.trim();
@@ -63,6 +72,10 @@ form.addEventListener("submit", function (e) {
     newId = Math.ceil(Math.random() * 100000);
   } while (articles.some(ar => ar.id === newId));
 
+  const cateInfo = categories.find(c => c.name === cateValue);
+  const color = cateInfo?.color || "rgb(0,0,0)";
+  const background = cateInfo?.background || "rgba(0,0,0,0.1)";  
+
   const newArticleObj = {
     id: newId,
     title: titleValue,
@@ -70,13 +83,15 @@ form.addEventListener("submit", function (e) {
     content: contentValue,
     status: statusValue.toLowerCase(),
     image: selectedImageBase64,
-    createdAt: new Date().toISOString().split("T")[0]
+    createdAt: new Date().toISOString().split("T")[0],
+    color,
+    background,
   };
 
   articles.push(newArticleObj);
   localStorage.setItem("articles", JSON.stringify(articles));
 
-  // 🔄 Reset form
+  //  Reset form
   inputTitle.value = "";
   selectCate.selectedIndex = 0;
   inputContent.value = "";
