@@ -50,6 +50,7 @@ body {
     height: 15.988478660583496px;
     position: absolute;
     right: 10px;
+    cursor: pointer;
 }
 
 .sign {
@@ -223,6 +224,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-left: 10px;
 }
 
 .profile-name {

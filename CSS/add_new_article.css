@@ -134,5 +134,14 @@ body {
     font-size: 14px;
     color: #555;
   }
+
+  .preview-image {
+    display:none;
+    max-width: 200px;
+    height: auto;
+  }
   
+  #input-image {
+    padding: 10px 50px;
+  }
 

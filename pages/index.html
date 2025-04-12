@@ -24,11 +24,13 @@
         </div>
         <div class="nav-search">
           <input
+          id="search-article-title"
             class="search-article"
-            type="search"
+            type="text"
             placeholder="Search for articles"
           />
           <img
+          id="search"
             class="icon-search"
             src="../assets/icons/search-user.png"
             alt=""
@@ -36,34 +38,44 @@
         </div>
         <div class="top-bar">
           <div class="profile-container">
-              <img class="profile-icon" src="../assets/images/avatar.png" alt="Profile">
-              <div class="dropdown-menu">
-                  <div class="infor">
-                      <div class="avt">
-                          <img style="width: 30px; height: 30px" src="../assets/images/avatar.png" alt=""/>
-                          <div>
-                              <p class="profile-name">Rikkei</p>
-                              <p class="profile-email">Rikkei@gmail.com</p>
-                          </div>
-                      </div>
-                      <div class="nav-links">
-                          <a class="view-profile" href="../pages/user_manager.html">View profile</a>
-                          <a href="">Update profile picture</a>
-                          <a href="">Change password</a>
-                      </div>
-                      <a id="logout" class="logout" href="../pages/login.html">Log out</a>
+            <img
+              class="profile-icon"
+              src="../assets/images/avatar.png"
+              alt="Profile"
+            />
+            <div class="dropdown-menu">
+              <div class="infor">
+                <div class="avt">
+                  <img
+                    style="width: 35px; height: 35px"
+                    src="../assets/images/avatar.png"
+                    alt=""
+                  />
+                  <div>
+                    <div class="profile-name" id="profile-name"></div>
+                    <div class="profile-email" id="profile-email"></div>
                   </div>
+                </div>
+                <div class="nav-links">
+                  <a class="view-profile" href="../pages/user_manager.html"
+                    >View profile</a
+                  >
+                  <a href="">Update profile picture</a>
+                  <a href="">Change password</a>
+                </div>
+                <a id="logout" class="logout" href="../pages/login.html"
+                  >Log out</a
+                >
               </div>
+            </div>
           </div>
-      </div>
-      
+        </div>
       </header>
       <main>
         <h2 style="margin-left: 150px; margin-bottom: 20px">
           Recent blog posts
         </h2>
         <div class="articles-content">
-          <a href="article_details.html">
           <div class="card" style="width: 593px; margin-left: 150px">
             <img
               style="width: 592px; height: 268px"
@@ -71,21 +83,18 @@
               class="card-img-top"
               alt="..."
             />
-              <div class="card-body">
-                <p class="date">Date: 2025-02-25</p>
-                <h4>A Productive Day at Work</h4>
-                <p class="card-text">
-                  Today was a really productive day at work. I managed to finish a
-                  report ahead of schedule and received positive feedback from my
-                  manager.
-                </p>
-                <p class="category daily-journal">Daily Journal</p>
-              </div> 
-            </a>
-            
+            <div class="card-body">
+              <p class="date">Date: 2025-02-25</p>
+              <h4>A Productive Day at Work</h4>
+              <p class="card-text">
+                Today was a really productive day at work. I managed to finish a
+                report ahead of schedule and received positive feedback from my
+                manager.
+              </p>
+              <p class="category daily-journal">Daily Journal</p>
+            </div>
           </div>
           <div class="content-right">
-            <a href=""></a>
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
@@ -150,7 +159,9 @@
             "
           >
             ADD NEW ARTICLE
-            <button id="btn-add-article" class="btn-add"><span class="up">+</span></button>
+            <button id="btn-add-article" class="btn-add">
+              <span class="up">+</span>
+            </button>
           </h2>
           <nav id="category-nav">
             <a href="#" class="category-link active">All blog posts</a>
@@ -225,3 +236,4 @@
     <script src="../JS/index.js"></script>
   </body>
 </html>
+  

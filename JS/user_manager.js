@@ -31,7 +31,7 @@ logoutBtn.addEventListener("click", function () {
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
 back.addEventListener("click", function () {
-   window.location.href = "../pages/index.html"; 
+    window.history.back();
 });
 
 let currentPage = 1;

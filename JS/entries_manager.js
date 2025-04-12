@@ -34,7 +34,7 @@ logoutBtn.addEventListener("click", function () {
 });
 
 back.addEventListener("click", function () {
-   window.location.href = "../pages/index.html"; 
+   window.history.back(); 
 });
 
 if (!localStorage.getItem("categories")) {

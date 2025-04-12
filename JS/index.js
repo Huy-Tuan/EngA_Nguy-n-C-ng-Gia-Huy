@@ -4,18 +4,54 @@ const addArticle = document.querySelector("#btn-add-article");
 const articleList = document.getElementById("article-list");
 const paginationContainer = document.getElementById("pagination"); // Thêm thẻ này trong HTML
 const logout = document.getElementById("logout");
+const profileName = document.getElementById("profile-name");
+const profileEmail = document.getElementById("profile-email");
+const titleArticle = document.getElementById("search-article-title");
+const find = document.getElementById("search");
+
+let logged = JSON.parse(localStorage.getItem("logged")) || [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
+const categories = JSON.parse(localStorage.getItem("categories")) || [];
+
+find.addEventListener("click", function () {
+const foundTitle = articles.filter((u) => u.title.toLowerCase().includes(titleArticle.value.toLowerCase().trim()));
+
+    if (foundTitle) {
+            paginateArticles(foundTitle, 1);
+            currentPage = 1;
+    }
+});
+
+function renderInformation() {
+    profileName.innerHTML = "";
+    profileEmail.innerHTML = "";
+
+    const emailElement = document.createElement("p");
+    emailElement.innerHTML = `${logged}`;
+    emailElement.classList.add("profile-email");
+    profileEmail.appendChild(emailElement);
+
+    const findUser = users.find(u => u.email === logged);
+    
+    if (findUser) {
+        const nameElement = document.createElement("p");
+        nameElement.innerHTML = `${findUser.username}`;
+        profileName.appendChild(nameElement);
+    }
+}
+renderInformation();
+
 
 window.addEventListener("DOMContentLoaded", function () {
-    const isLoggedIn = localStorage.getItem("isLoggedIn", "true");
-  
-    if (isLoggedIn !== "true") {
-      window.location.replace("../pages/homepage.html");
-    }
 
     const logged = JSON.parse(localStorage.getItem("logged")) || null;
     if(!logged) {
         this.window.location.href = "./login.html"
     }
+
+    // if (logged) {
+    //     window.location.replace("index.html");
+    // }
   });
 
 logout.addEventListener("click", function () {
@@ -52,7 +88,6 @@ document.addEventListener("click", function (event) {
 });
 
 addArticle.addEventListener("click", function () {
-    console.log("Clicked Add Article");
     window.location.href = "add_new_article.html";
 });
 

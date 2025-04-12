@@ -14,10 +14,10 @@ btnSignIn.addEventListener("click", function (e) {
 });
 
 window.addEventListener("DOMContentLoaded", function () {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-  
-    if (isLoggedIn !== "true") {
-      window.location.replace("../pages/login.html"); // hoặc login.html nếu muốn
-    }
-  });
-  
+
+  const logged = JSON.parse(localStorage.getItem("logged")) || null;
+
+  if (logged) {
+      window.location.href ="index.html";
+  }
+});
