@@ -69,6 +69,8 @@ logout.addEventListener("click", function () {
 
 let articles = JSON.parse(localStorage.getItem("articles")) || [];
 articles.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+console.log(articles);
+
 
 
     let a = Math.ceil(Math.random() * 255);
@@ -123,7 +125,7 @@ function renderArticles(list) {
                 alt="..."
             />
             <div class="card-body">
-                <p class="date">Date: ${a.createdAt || "2025-04-09"}</p>
+                <p class="date">Date: ${a.createdAt.split("T")[0]}</p>
                 <h4 class="title">${a.title}</h4>
                 <p class="content">${a.content.slice(0, 100)}</p>
                 <p style="color: ${a.color}; background: ${a.background}" class="category ${a.category}">${a.category}</p>

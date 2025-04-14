@@ -61,7 +61,7 @@ form.addEventListener("submit", function (e) {
     content: contentValue,
     status: statusValue.toLowerCase(),
     image: document.getElementById("input-image").value,
-    createdAt: new Date().toISOString().split("T")[0],
+    createdAt: new Date().toISOString(),
     color,
     background,
   };
