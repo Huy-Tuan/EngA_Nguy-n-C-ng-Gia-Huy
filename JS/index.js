@@ -8,18 +8,27 @@ const profileName = document.getElementById("profile-name");
 const profileEmail = document.getElementById("profile-email");
 const titleArticle = document.getElementById("search-article-title");
 const find = document.getElementById("search");
+const formSearch = document.getElementById("form-search");
 
 let logged = JSON.parse(localStorage.getItem("logged")) || [];
 let users = JSON.parse(localStorage.getItem("users")) || [];
 const categories = JSON.parse(localStorage.getItem("categories")) || [];
 
 find.addEventListener("click", function () {
-const foundTitle = articles.filter((u) => u.title.toLowerCase().includes(titleArticle.value.toLowerCase().trim()));
+    const foundTitle = articles.filter((u) => u.title.toLowerCase().includes(titleArticle.value.toLowerCase().trim()));
+        if (foundTitle) {
+                paginateArticles(foundTitle, 1);
+                currentPage = 1;
+        }
+});
 
-    if (foundTitle) {
-            paginateArticles(foundTitle, 1);
-            currentPage = 1;
-    }
+formSearch.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const foundTitle = articles.filter((u) => u.title.toLowerCase().includes(titleArticle.value.toLowerCase().trim()));
+    if(foundTitle) {
+        paginateArticles(foundTitle, 1);
+        currentPage = 1;
+    } 
 });
 
 function renderInformation() {
@@ -58,7 +67,9 @@ logout.addEventListener("click", function () {
    localStorage.removeItem("logged");
 });
 
-const articles = JSON.parse(localStorage.getItem("articles")) || [];
+let articles = JSON.parse(localStorage.getItem("articles")) || [];
+articles.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
 
     let a = Math.ceil(Math.random() * 255);
     let b = Math.ceil(Math.random() * 255);

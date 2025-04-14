@@ -15,27 +15,6 @@ btnClose.addEventListener("click", function () {
   window.history.back();
 });
 
-// let selectedImageBase64 = ""; //  ảnh sẽ lưu tại đây
-
-// // Đọc file khi người dùng chọn ảnh
-// inputImage.addEventListener("change", function (event) {
-//   const file = event.target.files[0];
-
-//   if (file) {
-//     const reader = new FileReader();
-//     reader.onload = function (e) {
-//       selectedImageBase64 = e.target.result; //  lưu ảnh
-//       previewImage.src = selectedImageBase64;
-//       previewImage.style.display = "block";
-//     };
-//     reader.readAsDataURL(file);
-//   } else {
-//     selectedImageBase64 = "";
-//     previewImage.src = "";
-//     previewImage.style.display = "none";
-//   }
-// });
-
 let idCate;
 
 //  Render danh mục
@@ -63,7 +42,6 @@ form.addEventListener("submit", function (e) {
   }
 
   if (!titleValue || !contentValue || !statusValue) {
-    console.log("Không được để trống các trường!");
     return;
   }
 
