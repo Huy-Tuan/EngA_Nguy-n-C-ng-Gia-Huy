@@ -27,7 +27,7 @@ let currentArticle = { ...article };
 
 // Khởi tạo
 currentArticle.likes = currentArticle.likes || 0;
-currentArticle.comments = currentArticle.comments || [];
+currentArticle.comments = Array.isArray(currentArticle.comments) ? currentArticle.comments : [];
 
 // Hiển thị lượt like
 const likeBtn = document.getElementById("likeBtn");
@@ -49,7 +49,6 @@ const commentList = document.getElementById("commentList");
 function renderComments() {
   commentList.innerHTML = "";
   commentCount.innerText = currentArticle.comments.length;
-  updateArticle(currentArticle);
 
   currentArticle.comments.forEach((cmt, index) => {
     const li = document.createElement("li");
