@@ -10,6 +10,9 @@ const yes = document.getElementById("yes");
 const no = document.getElementById("no");
 const back = document.getElementById("back");
 const logoutBtn = document.getElementById("logout");
+const listCategory = document.getElementById("list-category");
+
+let categories = JSON.parse(localStorage.getItem("categories")) || [];
 
 logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("isLoggedIn");
@@ -116,13 +119,60 @@ btnAdd.addEventListener("click", function (e) {
     newCate.value = "";
 });
 
+let currentPage = 1;
+let itemsPerPage = 5;
+
+function renderPagination() {
+    pagination.innerHTML = "";
+
+    const totalPages = Math.ceil(categories.length / itemsPerPage);
+
+    // Nút previous
+    const prevBtn = document.createElement("button");
+    prevBtn.textContent = "Previous";
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.addEventListener("click", function(){
+        if (currentPage > 1) {
+            currentPage--;
+            renderCategory();
+        }
+    });
+    pagination.appendChild(prevBtn);
+
+    // Nút số trang
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        btn.className = i === currentPage ? "active" : "";
+        btn.addEventListener("click", function () {
+                currentPage = i;
+                renderCategory();
+        });
+        pagination.appendChild(btn);
+    }
+
+    //Nút next
+    const nextBtn = document.createElement("button");
+    nextBtn.textContent = "Next";
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.addEventListener("click", function () {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderCategory();
+        } 
+    });
+    pagination.appendChild(nextBtn);
+}
+
 function renderCategory() {
-    const listCategory = document.getElementById("list-category");
+    categories = JSON.parse(localStorage.getItem("categories")) || [];
     listCategory.innerHTML = "";
 
-    let categories = JSON.parse(localStorage.getItem("categories")) || [];
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginateCategories = categories.slice(startIndex, endIndex);
 
-    categories.forEach(category => {
+    paginateCategories.forEach(category => {
         const newRow = document.createElement("tr");
         newRow.innerHTML = `
         <td>${category.id}</td>
@@ -131,10 +181,10 @@ function renderCategory() {
         <button onclick = "editRow(${category.id})">Sửa</button>
         <button onclick = "deleteRow(${category.id})">Xóa</button>
         </td>
-        `
+        `;
         listCategory.appendChild(newRow);
-        
     });
+    renderPagination();
 }
 
 renderCategory();

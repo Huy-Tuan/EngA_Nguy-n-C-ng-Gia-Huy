@@ -57,11 +57,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if(!logged) {
         this.window.location.href = "./login.html"
     }
-
-    // if (logged) {
-    //     window.location.replace("index.html");
-    // }
-  });
+});
 
 logout.addEventListener("click", function () {
    localStorage.removeItem("logged");
